@@ -1,8 +1,8 @@
-// SPDX-License-Identifier: GPL-2.0
+// SPDX-License-Identifier: ISC
 /* Copyright (C) 2019 MediaTek Inc.
  *
- * Author: Roy Luo <roychl666@gmail.com>
-	   Ryder Lee <ryder.lee@mediatek.com>
+ * Author: Roy Luo <royluo@google.com>
+ *         Ryder Lee <ryder.lee@mediatek.com>
  */
 
 #include <linux/firmware.h>
@@ -515,7 +515,13 @@ int mt7615_mcu_init(struct mt7615_dev *dev)
 	if (ret)
 		return ret;
 
-	return mt7615_load_firmware(dev);
+	ret = mt7615_load_firmware(dev);
+	if (ret)
+		return ret;
+
+	set_bit(MT76_STATE_MCU_RUNNING, &dev->mt76.state);
+
+	return 0;
 }
 
 void mt7615_mcu_exit(struct mt7615_dev *dev)

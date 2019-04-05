@@ -1,4 +1,4 @@
-#SPDX-License-Identifier: GPL-2.0
+#SPDX-License-Identifier: ISC
 
 obj-$(CONFIG_MT7615E) += mt7615e.o
 

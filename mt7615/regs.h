@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: GPL-2.0 */
+/* SPDX-License-Identifier: ISC */
 /* Copyright (C) 2019 MediaTek Inc. */
 
 #ifndef __MT7615_REGS_H
@@ -83,8 +83,12 @@
 #define MT_WF_AGG_BASE			0x20a00
 #define MT_WF_AGG(ofs)			(MT_WF_AGG_BASE + (ofs))
 
-#define MT_AGG_SCR			MT_WF_AGG(0x0fc)
-#define MT_AGG_SCR_NLNAV_MID_PTEC_DIS	BIT(3)
+#define MT_AGG_ARCR			MT_WF_AGG(0x010)
+#define MT_AGG_ARCR_INIT_RATE1		BIT(0)
+#define MT_AGG_ARCR_RTS_RATE_THR	GENMASK(12, 8)
+#define MT_AGG_ARCR_RATE_DOWN_RATIO	GENMASK(17, 16)
+#define MT_AGG_ARCR_RATE_DOWN_RATIO_EN	BIT(19)
+#define MT_AGG_ARCR_RATE_UP_EXTRA_TH	GENMASK(22, 20)
 
 #define MT_AGG_ARUCR			MT_WF_AGG(0x018)
 #define MT_AGG_ARDCR			MT_WF_AGG(0x01c)
@@ -92,6 +96,9 @@
 #define MT_AGG_ARxCR_LIMIT(_n)		GENMASK(2 + \
 					MT_AGG_ARxCR_LIMIT_SHIFT(_n), \
 					MT_AGG_ARxCR_LIMIT_SHIFT(_n))
+
+#define MT_AGG_SCR			MT_WF_AGG(0x0fc)
+#define MT_AGG_SCR_NLNAV_MID_PTEC_DIS	BIT(3)
 
 #define MT_WF_TMAC_BASE			0x21000
 #define MT_WF_TMAC(ofs)			(MT_WF_TMAC_BASE + (ofs))

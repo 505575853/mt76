@@ -1,9 +1,10 @@
-// SPDX-License-Identifier: GPL-2.0
+// SPDX-License-Identifier: ISC
 /* Copyright (C) 2019 MediaTek Inc.
  *
  * Author: Ryder Lee <ryder.lee@mediatek.com>
- *	   Roy Luo <roychl666@gmail.com>
- *	   Lorenzo Bianconi <lorenzo@kernel.org>
+ *         Roy Luo <royluo@google.com>
+ *         Lorenzo Bianconi <lorenzo@kernel.org>
+ *         Felix Fietkau <nbd@nbd.name>
  */
 
 #include "mt7615.h"
